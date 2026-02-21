@@ -170,6 +170,8 @@ features =['CreditScore', 'Balance', 'EstimatedSalary', 'NumOfProducts', 'IsActi
 X = df[features]
 y = df['Exited']
 
+print(df.head())
+
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 scaler = StandardScaler()
@@ -189,3 +191,10 @@ accuracy=accuracy_score(y_test, y_pred)
 print(conf_matrix)
 print(class_report)
 print(f"Accuracy: {accuracy:.2f}")
+
+import pickle #importing the pickle library to save the trained model to a file for later use. This allows us to reuse the model without having to retrain it every time we want to make predictions on new data.
+
+with open('model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+with open('scaler.pkl', 'wb') as file:
+    pickle.dump(scaler, file)
