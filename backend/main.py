@@ -7,7 +7,7 @@ import pandas as pd
 
 app = FastAPI()
 
-#to allow comm between the frontend and the backend
+#to allow comm between the frontend and the backend. something about the security too
 
 app.add_middleware(
     CORSMiddleware,
